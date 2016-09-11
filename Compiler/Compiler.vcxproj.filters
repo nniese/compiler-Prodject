@@ -25,10 +25,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Desktop\Project1CPPSkeleton\Scanner.h">
-      <Filter>Compiler</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Desktop\Project1CPPSkeleton\Token.h">
-      <Filter>Compiler</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
