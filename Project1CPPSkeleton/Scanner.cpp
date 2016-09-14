@@ -65,7 +65,7 @@ Token Scanner::next()
 			return token;
 		}
 		// checks Token Number
-		else if (isdigit(current_char())){// if first letter is a digit its a number 
+		else if (current_char() != '0' && isdigit(current_char())){// if first letter is a digit its a number 
 			token.line = line_num;
 			token.type = NUM;
 			token.lexeme = "";
@@ -77,6 +77,18 @@ Token Scanner::next()
 			}
 			token.lexeme = lexeme;
 			return token;
+		}
+		else if (current_char() == '0'){
+			token.type = ERROR;
+			token.lexeme = "digit can not start with a zero";
+			token.line = line_num;
+			token.column = column_num;
+			advance();
+			if (!isdigit(current_char())){
+				token.type = NUM;
+				token.lexeme = "0";
+			}
+			return token; 
 		}
 
 
@@ -224,7 +236,10 @@ Token Scanner::next()
 			token.type = ERROR;
 			string Char = "";
 			Char += current_char();
-			token.lexeme = "unknow char " + Char;
+			if (Char != "")
+				token.lexeme = "unknow char " + Char;
+			else
+				token.lexeme = "unknow exception not considered a char";
 			advance();
 			return token;
 		}
